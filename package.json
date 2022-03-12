@@ -1,0 +1,12 @@
+{
+    "private": true,
+    "version": "3.0.20",
+    "workspaces": [
+        "packages/backend",
+        "packages/frontend"
+    ],
+    "prettier": {
+        "printWidth": 120,
+        "singleQuote": true
+    }
+}

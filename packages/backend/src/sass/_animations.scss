@@ -1,0 +1,13 @@
+.slide-enter-active, .slide-leave-active {
+    transition: all 0.3s;
+}
+
+.slide-enter {
+    opacity: 0;
+    transform: translateX(-1rem);
+}
+
+.slide-leave-to {
+    opacity: 0;
+    transform: translateX(1rem);
+}
