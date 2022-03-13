@@ -54,7 +54,6 @@ class SettingsSeeder extends Seeder
                         'key' => 'default'
                     ]
                 ],
-                'cdn' => 'imgix',
             ]),
         ]);
     }

@@ -1,0 +1,42 @@
+.services {
+    background: #f3f6ff;
+}
+
+.service-list {
+    &__item {
+    }
+}
+
+.service {
+    position: relative;
+
+    &__link {
+        text-decoration: none;
+        color: $body-color;
+    }
+
+    &__icon {
+        position: absolute;
+        transform: translate(2rem, -50%);
+        background: $primary;
+        border-radius: $border-radius;
+        padding: 1.2rem;
+    }
+
+    &__body {
+        background: #fff;
+        padding: 3rem 2rem 2rem 2rem;
+        border-radius: $border-radius;
+        margin-bottom: 4rem;
+        height: calc(100% - 4rem);
+    }
+
+    &__heading {
+        font-weight: 700;
+        font-size: 1.2rem;
+    }
+
+    &__text {
+        font-size: 0.875rem;
+    }
+}
