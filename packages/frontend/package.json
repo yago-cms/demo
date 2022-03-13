@@ -2,24 +2,25 @@
     "name": "frontend",
     "version": "1.0.0",
     "scripts": {
-      "dev": "npm run development",
-      "development": "mix --mix-config=webpack.mix.js",
-      "watch": "mix watch --mix-config=webpack.mix.js",
-      "watch-poll": "mix watch -- --watch-options-poll=1000 --mix-config=webpack.mix.js",
-      "hot": "mix watch --hot --mix-config=webpack.mix.js",
-      "prod": "npm run production",
-      "production": "mix --production --mix-config=webpack.mix.js"
+        "dev": "npm run development",
+        "development": "mix --mix-config=webpack.mix.js",
+        "watch": "mix watch --mix-config=webpack.mix.js",
+        "watch-poll": "mix watch -- --watch-options-poll=1000 --mix-config=webpack.mix.js",
+        "hot": "mix watch --hot --mix-config=webpack.mix.js",
+        "prod": "npm run production",
+        "production": "mix --production --mix-config=webpack.mix.js"
     },
     "repository": {
-      "type": "git",
-      "url": "git+https://github.com/yago-cms/yago-content.git"
+        "type": "git",
+        "url": "git+https://github.com/yago-cms/yago-content.git"
     },
     "author": "",
     "bugs": {
-      "url": "https://github.com/yago-cms/yago-content/issues"
+        "url": "https://github.com/yago-cms/yago-content/issues"
     },
     "homepage": "https://github.com/yago-cms/yago-content#readme",
     "dependencies": {
-      "bootstrap": "^5.1.3"
+        "@popperjs/core": "^2.11.3",
+        "bootstrap": "^5.1.3"
     }
-  }
+}
