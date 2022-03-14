@@ -1,9 +1,12 @@
-import { Login } from "./Login";
-import { LOGOUT } from "../queries";
-import { NavLink, Route, Routes, useLocation, useParams } from "react-router-dom";
-import { useLocalStorage } from "react-use";
-import { useMutation } from "@apollo/client";
+import { useLazyQuery, useMutation } from "@apollo/client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useState } from "react";
+import { NavLink, Route, Routes } from "react-router-dom";
+import { useLocalStorage } from "react-use";
+import { GET_ME, LOGOUT } from "../queries";
+import { Error } from "./Error";
+import { Loading } from "./Loading";
+import { Login } from "./Login";
 
 // Routes
 let routes = require('../routes').default;
@@ -26,11 +29,19 @@ menuFiles.keys().forEach(file => {
 });
 
 export default function App() {
+    const [isLoggingOut, setIsLoggingOut] = useState(false);
+
     const [accessToken, setAccessToken] = useLocalStorage('accessToken');
 
-    const [logout, { loading: isLoading, error }] = useMutation(LOGOUT);
+    const [getMe, getMeResult] = useLazyQuery(GET_ME);
+    const [logout, logoutResult] = useMutation(LOGOUT);
+
+    const isLoading = getMeResult.loading || logoutResult.loading || isLoggingOut;
+    const error = getMeResult.error || logoutResult.error;
 
     const handleLogout = () => {
+        setIsLoggingOut(true);
+
         logout()
             .then(() => {
                 localStorage.removeItem('accessToken');
@@ -38,15 +49,26 @@ export default function App() {
             });
     };
 
+    useEffect(() => {
+        if (accessToken) {
+            getMe();
+        }
+    }, [accessToken]);
+
+    if (isLoading) return <Loading />;
+    if (error) return <Error message={error.message} />;
+
     return !accessToken
         ? <Login setAccessToken={setAccessToken} />
         :
         <>
             <div className="navbar">
-                <div className="navbar__user">Formsmedjan</div>
+                <div className="navbar__user">
+                    {getMeResult.data && getMeResult.data.me.name}
+                </div>
 
                 <div className="navbar__logout">
-                    <button className="btn btn-outline-secondary" onClick={handleLogout} disabled={isLoading}>
+                    <button className="btn btn-outline-secondary" onClick={handleLogout}>
                         Log out
                     </button>
                 </div>

@@ -228,11 +228,6 @@ export const PageIndex = () => {
 
   const actions = [
     {
-      path: '/pages/settings',
-      text: 'Settings',
-      icon: faCog,
-    },
-    {
       path: '/pages/templates',
       text: 'Page templates',
       icon: faFileAlt,

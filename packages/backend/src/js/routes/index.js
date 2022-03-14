@@ -6,7 +6,6 @@ import { FieldIndex } from '../pages/Field/FieldIndex';
 import { FileIndex } from '../pages/File/FileIndex';
 import { PageForm } from '../pages/Page/PageForm';
 import { PageIndex } from '../pages/Page/PageIndex';
-import { PageSettings } from '../pages/Page/PageSettings';
 import { PageTemplateForm } from '../pages/PageTemplate/PageTemplateForm';
 import { PageTemplateIndex } from '../pages/PageTemplate/PageTemplateIndex';
 import { SettingsIndex } from '../pages/Settings/SettingsIndex';
@@ -22,11 +21,6 @@ export default [
         path: '/pages',
         exact: true,
         component: <PageIndex />
-    },
-    {
-        path: '/pages/settings',
-        exact: true,
-        component: <PageSettings />
     },
     {
         path: '/pages/templates',

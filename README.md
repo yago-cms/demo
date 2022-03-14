@@ -85,6 +85,12 @@ $user->assignRole('writer', 'superadmin');
 ./vendor/bin/sail artisan yago:install-template default
 ```
 
+Install any Node dependencies
+
+```bash
+npm i
+```
+
 ## Install a package
 ```bash
 composer require yago-cms/form

@@ -22,7 +22,6 @@ const schema = yup.object({
             key: yup.string().required(),
             columns: yup.array().of(
                 yup.object().shape({
-
                 }),
             ),
         })
@@ -40,7 +39,7 @@ const Columns = ({ index, errors, control, register }) => {
         <legend>Columns</legend>
 
         {fields.map((field, subIndex) =>
-            <div className="row mb-3" key={subIndex}>
+            <div className="row mb-3" key={field.key}>
                 <div className="col-3">
                     Column #{subIndex + 1}
 
@@ -286,7 +285,7 @@ export const PageTemplateForm = () => {
                         {fields.map((field, index) => {
                             return (
                                 <PageCard
-                                    key={index}
+                                    key={field._key}
                                     footer={
                                         <FieldActions
                                             fields={fields}

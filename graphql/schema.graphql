@@ -31,7 +31,6 @@ type Query {
     pageTemplate(id: ID @eq): PageTemplate @guard @find
     pageTemplates: [PageTemplate!]! @guard @orderBy(column: "sorting") @all
 
-
     # Card template
     cardTemplate(id: ID @eq): CardTemplate @guard @find
     cardTemplates: [CardTemplate!]! @guard @all
@@ -124,7 +123,7 @@ type PageTemplate {
     id: ID!
     name: String!
     sorting: Int
-    pageTemplateSections: [PageTemplateSection!]! @hasMany
+    pageTemplateSections: [PageTemplateSection!]! @orderBy(column: "sorting") @hasMany
 }
 
 type PageTemplateSection {
