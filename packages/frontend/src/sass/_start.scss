@@ -4,10 +4,26 @@ $section-margin: 6rem;
     color: #fff;
 }
 
+.navbar {
+    z-index: $zindex-fixed;
+}
+
 .hero {
+    position: relative;
     margin-bottom: $section-margin;
 
     &__carousel {
+        &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            // background: linear-gradient(0deg, rgb(100 103 242 / 21%), transparent);
+            background: linear-gradient(0deg, rgb(49 51 116 / 62%), #0000003d);
+        }
+
         .carousel-caption {
             top: 0;
             bottom: 0;
@@ -17,6 +33,8 @@ $section-margin: 6rem;
         }
 
         .carousel-content {
+            z-index: $zindex-sticky;
+
             &__heading {
                 font-size: 2rem;
                 font-weight: 800;

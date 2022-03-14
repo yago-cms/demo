@@ -22,9 +22,9 @@
         </div>
     @endif
 
-    <nav class="navbar navbar-expand-lg navbar-light position-absolute">
+    <nav class="navbar navbar-expand-lg navbar-dark position-absolute">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">YAGO Content</a>
+            <a class="navbar-brand" href="/">YAGO Content demo</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"

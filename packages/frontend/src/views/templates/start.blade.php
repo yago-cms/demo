@@ -24,7 +24,7 @@
 
                 <div class="col-md-6 offset-md-1">
                     <div class="awards__image">
-                        <x-core.page-section :data="$data" page-section-name="Awards" column="1" />
+                    <x-core.page-section :data="$data" page-section-name="Awards" column="1" />
                     </div>
                 </div>
             </div>

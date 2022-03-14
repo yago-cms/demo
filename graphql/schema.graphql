@@ -9,6 +9,7 @@ scalar Upload @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Upload
 
 type Query {
     # Auth
+    me: User @auth @guard
     # users: [User!]! @paginate(defaultCount: 10)
     # user(id: ID @eq): User @find
 
