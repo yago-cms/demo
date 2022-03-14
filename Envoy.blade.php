@@ -28,6 +28,14 @@
     set-remote-db
 @endstory
 
+@story('sync-local-storage')
+    set-local-storage
+@endstory
+
+@story('sync-remote-storage')
+    set-remote-storage
+@endstory
+
 @task('set-remote-db', ['on' => 'localhost'])
     ssh {{ env('PLESK_SSH') }} "mysql -u{{ env('PLESK_DB_USERNAME') }} '-p{{ env('PLESK_DB_PASSWORD') }}' -h {{ env('PLESK_DB_HOST') }}  {{ env('PLESK_DB_DATABASE') }}" < /tmp/{{ env('DB_DATABASE') }}.sql
 @endtask
@@ -42,6 +50,14 @@
 
 @task('get-local-db', ['on' => 'localhost'])
     docker-compose exec -T mysql mysqldump -u{{ env('DB_USERNAME') }} -p{{ env('DB_PASSWORD') }} --no-tablespaces {{ env('DB_DATABASE') }} > /tmp/{{ env('DB_DATABASE') }}.sql
+@endtask
+
+@task('set-local-storage', ['on' => 'localhost'])
+    scp -r {{ env('PLESK_SSH') }}:./httpdocs/storage/app/public/upload/ storage/app/public/
+@endtask
+
+@task('set-remote-storage', ['on' => 'localhost'])
+    scp -r storage/app/public/upload/ {{ env('PLESK_SSH') }}:./httpdocs/storage/app/public/upload/
 @endtask
 
 @task('build-local', ['on' => 'localhost'])

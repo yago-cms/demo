@@ -1,5 +1,59 @@
+$section-margin: 6rem;
+
+.btn-primary {
+    color: #fff;
+}
+
+.hero {
+    margin-bottom: $section-margin;
+
+    &__carousel {
+        h5 {
+            font-size: 5rem;
+            font-weight: 800;
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+
+        .carousel-caption {
+            top: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .carousel-content {
+            max-width: 80%;
+        }
+    }
+}
+
+.awards {
+    // margin-bottom: $section-margin;
+    margin-bottom: -4rem;
+
+    &__body {
+        margin-bottom: $section-margin;
+    }
+
+    &__image {
+        img {
+            @extend .rounded;
+        }
+    }
+}
+
 .services {
+    margin-bottom: $section-margin;
+    padding-top: $section-margin;
     background: #f3f6ff;
+
+    &__header {
+        margin-bottom: $section-margin;
+    }
 }
 
 .service-list {

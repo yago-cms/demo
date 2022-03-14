@@ -6,12 +6,14 @@
             <x-core.picture :media="$slide->media" :breakpointGroup="$content->breakpoint" />
 
             @if ($content->captions)
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>{{ $slide->caption }}</h5>
+                <div class="carousel-caption">
+                    <div class="carousel-content">
+                        <h5>{{ $slide->caption }}</h5>
 
-                    @if ($slide->subCaption)
-                        <p>{{ $slide->subCaption }}</p>
-                    @endif
+                        @if ($slide->subCaption)
+                            <p>{{ $slide->subCaption }}</p>
+                        @endif
+                    </div>
                 </div>
             @endif
         </div>
